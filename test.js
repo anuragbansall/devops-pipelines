@@ -1,5 +1,5 @@
 console.log("Starting tests...");
-console.log("Waiting 3 seconds...");
+console.log("Waiting 5 seconds...");
 setTimeout(() => {
   console.log("Tests completed.");
-}, 3000);
+}, 5000);
