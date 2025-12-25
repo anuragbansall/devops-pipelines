@@ -1,0 +1,24 @@
+name: DevOps CI/CD Pipeline # Name of the workflow
+
+on: # Trigger the workflow on push to main branch
+  push: # Event type
+    branches: [main] # Branch to monitor
+
+jobs: # Define the jobs to run in the workflow on push into main
+  build: # Job name
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+
+    steps: # Steps to execute in the job
+      - name: Checkout code # Step name
+        uses: actions/checkout@v5 # Checkout the repository code (Used to access the codebase)
+
+      - name: Set up Node.js # Step name
+        uses: actions/setup-node@v3 # Set up Node.js environment
+        with:
+          node-version: "16" # Specify Node.js version
+
+      - name: Install dependencies # Step name
+        run: npm install # Install project dependencies
+
+      - name: Run tests # Step name
+        run: npm test # Execute tests defined in package.json
